@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabella - Escort Premium en Cuernavaca</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #d63384;
+            --secondary-color: #6f42c1;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #111;
+            color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        .bg-sexy {
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+        }
+        
+        .hero-section {
+            height: 100vh;
+            background: url('img/portada.PNG') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-sexy {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 25px;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        
+        .btn-sexy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(214, 51, 132, 0.3);
+        }
+        
+        .gallery-img {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .service-card:hover {
+            background: rgba(214, 51, 132, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px 0;
+        }
+        
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            line-height: 60px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+        
+        .age-modal .modal-content {
+            background: linear-gradient(135deg, var(--dark-color), #490b32);
+            color: white;
+            border: none;
+            border-radius: 15px;
+        }
+        
+        .age-modal .btn-enter {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+        }
+        
+        .age-modal .btn-exit {
+            background: #6c757d;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Age Verification Modal -->
+    <div class="modal fade age-modal" id="ageVerificationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ageVerificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="ageVerificationModalLabel">Verificación de Edad</h5>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-exclamation-triangle fa-4x mb-4" style="color: var(--primary-color);"></i>
+                    <h4>Contenido para adultos</h4>
+                    <p>Este sitio web contiene material explícito destinado únicamente a adultos. Debes tener al menos 18 años para acceder.</p>
+                    <p>¿Eres mayor de 18 años?</p>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="button" class="btn btn-enter btn-sexy me-3" id="btnEnter">Sí, soy mayor de edad</button>
+                    <button type="button" class="btn btn-exit btn-secondary" id="btnExit">No, soy menor de edad</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-sexy fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Isabella</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center">
+        <div class="container hero-content text-center">
+            <h1 class="display-3 fw-bold mb-4">Isabella</h1>
+            <p class="lead mb-5">Escort independiente en Cuernavaca - Real, Complaciente, Divertida y Cachonda</p>
+            <a href="#contact" class="btn btn-sexy btn-lg me-2"><i class="fas fa-phone-alt me-2"></i>Contactar</a>
+            <a href="#gallery" class="btn btn-outline-light btn-lg"><i class="fas fa-images me-2"></i>Ver más</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="img/Perfil.jpeg" alt="Isabella" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Sobre <span class="text-pink">mí</span></h2>
+                    <p class="lead">Hola, soy Isabella, una escort independiente en Cuernavaca que ofrece experiencias íntimas y placenteras.</p>
+                    <p>Soy una mujer real, complaciente, divertida y con un apetito sexual que satisfará tus más profundos deseos. Mi objetivo es hacerte sentir especial y satisfecho en cada encuentro.</p>
+                    <p>Discreta y profesional, ofrezco un servicio personalizado adaptado a tus necesidades y fantasías. Cada momento juntos será inolvidable.</p>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-sexy me-2">Contáctame</a>
+                        <a href="#services" class="btn btn-outline-light">Mis servicios</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-dark">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Mis <span class="text-pink">Servicios</span></h2>
+                <p class="lead">Experiencias personalizadas para tu placer</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-heart fa-3x" style="color: var(--primary-color);"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Encuentros íntimos</h4>
+                        <p>Sesiones privadas donde exploraremos juntos tus fantasías más íntimas en un ambiente discreto y seguro.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-moon fa-3x" style="color: var(--primary-color);"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Noches completas</h4>
+                        <p>Experiencias prolongadas para aquellos que buscan más que un encuentro rápido. Disfruta de mi compañía durante toda la noche.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-camera fa-3x" style="color: var(--primary-color);"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Contenido exclusivo</h4>
+                        <p>Venta de contenido personalizado: fotos, videos y más. Pregunta por mis paquetes especiales.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p class="small text-muted">* Todos los servicios son discretos y confidenciales. Precios y disponibilidad sujetos a consulta.</p>
+            </div>
+        </div>
+    </section>
+    <!-- CTA con contador de tiempo limitado -->
+<div style="
+background: linear-gradient(135deg, #b82b71, #723bd8);
+color: white;
+padding: 25px;
+border-radius: 10px;
+text-align: center;
+margin: 30px auto;
+max-width: 600px;
+box-shadow: 0 10px 30px rgba(214, 51, 132, 0.3);
+border: 1px solid rgba(255, 255, 255, 0.2);
+position: relative;
+overflow: hidden;
+">
+<div style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/portada2.jpg') center/cover;
+    opacity: 0.2;
+    z-index: 0;
+"></div>
+<div style="position: relative; z-index: 1;">
+    <h3 style="margin-bottom: 15px; font-weight: 700;">¡Promoción Especial!</h3>
+    <p style="margin-bottom: 20px; font-size: 1.1rem;">Reserva ahora y obtén un 20% de descuento en tu primer encuentro</p>
+    
+    <div style="
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 25px;
+    ">
+        <div style="
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 70px;
+        ">
+            <div id="countdown-days" style="font-size: 2rem; font-weight: 700;">00</div>
+            <div style="font-size: 0.8rem;">Días</div>
+        </div>
+        <div style="
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 70px;
+        ">
+            <div id="countdown-hours" style="font-size: 2rem; font-weight: 700;">00</div>
+            <div style="font-size: 0.8rem;">Horas</div>
+        </div>
+        <div style="
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 70px;
+        ">
+            <div id="countdown-minutes" style="font-size: 2rem; font-weight: 700;">00</div>
+            <div style="font-size: 0.8rem;">Minutos</div>
+        </div>
+        <div style="
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 70px;
+        ">
+            <div id="countdown-seconds" style="font-size: 2rem; font-weight: 700;">00</div>
+            <div style="font-size: 0.8rem;">Segundos</div>
+        </div>
+    </div>
+    
+    <a href="#contact" style="
+        background: white;
+        color: #d63384;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s;
+        border: 2px solid white;
+    " onmouseover="this.style.background='transparent'; this.style.color='white'" 
+    onmouseout="this.style.background='white'; this.style.color='#d63384'">
+        ¡Quiero mi descuento!
+    </a>
+</div>
+</div>
+
+<script>
+// Configura la fecha de finalización de la promoción (3 días desde ahora)
+const countdownDate = new Date();
+countdownDate.setDate(countdownDate.getDate() + 3);
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+    
+    // Cálculos de tiempo
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Actualiza el HTML
+    document.getElementById("countdown-days").textContent = days.toString().padStart(2, '0');
+    document.getElementById("countdown-hours").textContent = hours.toString().padStart(2, '0');
+    document.getElementById("countdown-minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("countdown-seconds").textContent = seconds.toString().padStart(2, '0');
+    
+    // Si el contador llega a cero
+    if (distance < 0) {
+        clearInterval(countdownInterval);
+        document.querySelector('.countdown-container').innerHTML = "<h3>¡La promoción ha terminado!</h3>";
+    }
+}
+
+// Actualiza el contador cada segundo
+const countdownInterval = setInterval(updateCountdown, 1000);
+updateCountdown(); // Ejecuta inmediatamente
+</script>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Mi <span class="text-pink">Galería</span></h2>
+                <p class="lead">Un vistazo a mi mundo</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="gallery-img">
+                        <img src="img/uno.jpeg" alt="Isabella 1" class="img-fluid w-100">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-img">
+                        <img src="img/dos.jpeg" alt="Isabella 2" class="img-fluid w-100">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-img">
+                        <img src="img/tres.jpeg" alt="Isabella 3" class="img-fluid w-100">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="gallery-img">
+                        <img src="img/cuatro.jpeg" alt="Isabella 4" class="img-fluid w-100">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="gallery-img">
+                        <img src="img/cinco.jpeg" alt="Isabella 5" class="img-fluid w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Normas de Convivencia -->
+<div style="
+background: rgba(20, 20, 20, 0.8);
+padding: 30px;
+border-radius: 10px;
+margin: 40px auto;
+max-width: 800px;
+border: 1px solid rgba(214, 51, 132, 0.3);
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+">
+<h2 style="
+    color: #d63384;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 1.8rem;
+">Normas de Convivencia</h2>
+
+<div style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+">
+    <!-- Norma 1 -->
+    <div style="
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #d63384;
+    ">
+        <div style="
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        ">
+            <i class="fas fa-shower" style="
+                color: #d63384;
+                font-size: 1.5rem;
+                margin-right: 10px;
+            "></i>
+            <h3 style="
+                color: #f8f9fa;
+                margin: 0;
+                font-size: 1.2rem;
+            ">Higiene impecable</h3>
+        </div>
+        <p style="
+            color: #adb5bd;
+            margin: 0;
+            line-height: 1.5;
+        ">Ambos debemos llegar frescos y limpios a nuestro encuentro. Se proporcionará acceso a ducha.</p>
+    </div>
+    
+    <!-- Norma 2 -->
+    <div style="
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #d63384;
+    ">
+        <div style="
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        ">
+            <i class="fas fa-handshake" style="
+                color: #d63384;
+                font-size: 1.5rem;
+                margin-right: 10px;
+            "></i>
+            <h3 style="
+                color: #f8f9fa;
+                margin: 0;
+                font-size: 1.2rem;
+            ">Respeto mutuo</h3>
+        </div>
+        <p style="
+            color: #adb5bd;
+            margin: 0;
+            line-height: 1.5;
+        ">Cualquier comportamiento agresivo o irrespetuoso terminará la sesión inmediatamente.</p>
+    </div>
+    
+    <!-- Norma 3 -->
+    <div style="
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #d63384;
+    ">
+        <div style="
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        ">
+            <i class="fas fa-heartbeat" style="
+                color: #d63384;
+                font-size: 1.5rem;
+                margin-right: 10px;
+            "></i>
+            <h3 style="
+                color: #f8f9fa;
+                margin: 0;
+                font-size: 1.2rem;
+            ">Salud y seguridad</h3>
+        </div>
+        <p style="
+            color: #adb5bd;
+            margin: 0;
+            line-height: 1.5;
+        ">Me realizo pruebas médicas regularmente y espero lo mismo de mis clientes.</p>
+    </div>
+    
+    <!-- Norma 4 -->
+    <div style="
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #d63384;
+    ">
+        <div style="
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        ">
+            <i class="fas fa-clock" style="
+                color: #d63384;
+                font-size: 1.5rem;
+                margin-right: 10px;
+            "></i>
+            <h3 style="
+                color: #f8f9fa;
+                margin: 0;
+                font-size: 1.2rem;
+            ">Puntualidad</h3>
+        </div>
+        <p style="
+            color: #adb5bd;
+            margin: 0;
+            line-height: 1.5;
+        ">El tiempo comienza a la hora acordada. Llegadas tardías no extienden la sesión.</p>
+    </div>
+    
+    <!-- Norma 5 -->
+    <div style="
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #d63384;
+    ">
+        <div style="
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        ">
+            <i class="fas fa-lock" style="
+                color: #d63384;
+                font-size: 1.5rem;
+                margin-right: 10px;
+            "></i>
+            <h3 style="
+                color: #f8f9fa;
+                margin: 0;
+                font-size: 1.2rem;
+            ">Confidencialidad</h3>
+        </div>
+        <p style="
+            color: #adb5bd;
+            margin: 0;
+            line-height: 1.5;
+        ">Tu privacidad es sagrada. Discreción absoluta garantizada.</p>
+    </div>
+    
+    <!-- Norma 6 -->
+    <div style="
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #d63384;
+    ">
+        <div style="
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        ">
+            <i class="fas fa-money-bill-wave" style="
+                color: #d63384;
+                font-size: 1.5rem;
+                margin-right: 10px;
+            "></i>
+            <h3 style="
+                color: #f8f9fa;
+                margin: 0;
+                font-size: 1.2rem;
+            ">Donación acordada</h3>
+        </div>
+        <p style="
+            color: #adb5bd;
+            margin: 0;
+            line-height: 1.5;
+        ">Se entrega al inicio de la sesión, sin excepciones.</p>
+    </div>
+    
+    <!-- Norma 7 -->
+    <div style="
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #d63384;
+    ">
+        <div style="
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        ">
+            <i class="fas fa-ban" style="
+                color: #d63384;
+                font-size: 1.5rem;
+                margin-right: 10px;
+            "></i>
+            <h3 style="
+                color: #f8f9fa;
+                margin: 0;
+                font-size: 1.2rem;
+            ">Sin negociación</h3>
+        </div>
+        <p style="
+            color: #adb5bd;
+            margin: 0;
+            line-height: 1.5;
+        ">Los servicios y tarifas son los publicados, no se hacen descuentos ni cambios.</p>
+    </div>
+</div>
+</div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-dark">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Contáctame</h2>
+                    <p class="lead mb-4">¿Listo para una experiencia inolvidable? Escríbeme y coordinemos nuestro encuentro.</p>
+                    <div class="mb-4">
+                        <h5><i class="fas fa-phone-alt me-2"></i> WhatsApp</h5>
+                        <p>+52 1 777 789 6601</p>
+                    </div>
+                    <div class="mb-4">
+                        <h5><i class="fas fa-map-marker-alt me-2"></i> Ubicación</h5>
+                        <p>Cuernavaca, Morelos</p>
+                    </div>
+                    <div class="mb-4">
+                        <h5><i class="fas fa-clock me-2"></i> Horario</h5>
+                        <p>24/7 con cita previa</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-secondary p-4 rounded">
+                        <h4 class="mb-4">Envíame un mensaje</h4>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Tu email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" placeholder="Tu teléfono">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="4" placeholder="Tu mensaje" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-sexy w-100">Enviar mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <h3 class="mb-4">Isabella</h3>
+            <p class="mb-4">Escort independiente en Cuernavaca - Real, Complaciente, Divertida y Cachonda</p>
+            <div class="social-links mb-4">
+                <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+            <p class="small text-muted mb-0">© 2023 Isabella. Todos los derechos reservados.</p>
+            <p class="small text-muted">Este sitio es solo para adultos (+18)</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/527777896601" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Age Verification Modal
+        $(document).ready(function() {
+            $('#ageVerificationModal').modal('show');
+            
+            $('#btnEnter').click(function() {
+                $('#ageVerificationModal').modal('hide');
+                $('body').css('overflow', 'auto');
+            });
+            
+            $('#btnExit').click(function() {
+                window.location.href = 'https://www.google.com';
+            });
+            
+            // Smooth scrolling for anchor links
+            $('a[href*="#"]').on('click', function(e) {
+                e.preventDefault();
+                
+                $('html, body').animate(
+                    {
+                        scrollTop: $($(this).attr('href')).offset().top - 70,
+                    },
+                    500,
+                    'linear'
+                );
+            });
+            
+            // Navbar background change on scroll
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('.navbar').addClass('bg-dark');
+                    $('.navbar').removeClass('bg-sexy');
+                } else {
+                    $('.navbar').removeClass('bg-dark');
+                    $('.navbar').addClass('bg-sexy');
+                }
+            });
+            
+            // Contact form submission
+            $('#contactForm').submit(function(e) {
+                e.preventDefault();
+                alert('Gracias por tu mensaje. Isabella te contactará pronto.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
